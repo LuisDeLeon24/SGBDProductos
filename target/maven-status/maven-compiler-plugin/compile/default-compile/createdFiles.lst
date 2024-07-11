@@ -1,1 +1,4 @@
+org\luisDeleon\webapp\model\Producto.class
+Main.class
 org\luisDeleon\webapp\servlet\ProductoServlet.class
+org\luisDeleon\webapp\util\JPAUtil.class

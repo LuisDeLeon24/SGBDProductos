@@ -3,7 +3,8 @@
     Created on : 4/07/2024, 16:05:34
     Author     : informatica
 --%>
-
+<%@page import = "java.util.List" %>
+<%@page import="org.luisDeleon.webapp.model.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,21 +51,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Steinway and Sons model B</td>
-                <td>300,570.00</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Steinway and Sons model E</td>
-                <td>450,000.00</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Steinway and Sons model D</td>
-                <td>150,000.00</td>
-              </tr>
+                <%List<Producto> productos = (List)request.getAttribute("productos"); %>
+                <% for(Producto producto:productos){ %>
+                <tr>
+                    <th scope="row"><%=producto.getProductoid()%> </th>
+                    <th scope="row"><%=producto.getNombreproducto()%> </th>
+                    <th scope="row"><%=producto.getMarcaProducto()%> </th>
+                    <th scope="row"><%=producto.getDescripcionProducto()%> </th>
+                    <th scope="row"><%=producto.getPrecioProducto()%> </th>
+                </tr> 
+                    
+                    
+                  <%  } %>
             </tbody>
         </table></center>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

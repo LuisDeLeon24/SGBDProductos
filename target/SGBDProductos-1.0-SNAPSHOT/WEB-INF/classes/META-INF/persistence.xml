@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence">
-    <persistence-unit name="SGBDProductos" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <properties>
-            <property name="jakarta.persitence.jdbc.driver" value="com.mysql.cj.jdb.Driver"/>
-            <property name="jakarta.persitence.jdbc.url" value="jdbc:mysql://localhost:3306/SGBDProductos?serverTimezone=GMT-6"/>
-            <property name="jakarta.persitence.jodbc.user" value="luisDeLeon"/>
-            <property name="jakarta.persistence.jdbc.password" value="guatemala"/>
-            <!--Opcional-->
-            <property name="hibernate.dialect" value="org.dialect.MySQL8Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="jakarta.persitence.schema-generation.database.action" value="update"/>
-        </properties>
-    </persistence-unit>
+<persistence-unit name="SGBDProductos" transaction-type="RESOURCE_LOCAL">  <!-- Vuelve la DB como objeto para poder trabajar con JPA    |  RESOURCE_LOCAL se puede cambiar por Docker, en este caso se usa Tompcat, JTA Se usaría -->
+<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+<properties>
+<!--Configuracion inicail del Hibernate-->
+<property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SGBDProductos?serverTimezone=GMT-6" />
+<property name="jakarta.persistence.jdbc.user" value="luisDeLeon" />
+<property name="jakarta.persistence.jdbc.password" value="guatemala" />   <!--De esta linea para arriba es fijo para conectar las credenciales-->
+<!--Propertyes Opcionales-->
+<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" /> <!-- El 8 es la version de MySQL-->
+<property name="hibernate.hbm2ddl.auto" value="update" /> <!--Create , update, 1) crea la db si no existe, update la actualiza -->
+<property name="hibernate.show_sql" value="true" />
+<property name="hibernate.format_sql" value="true" /> <!-- Le da formato a las consultas. Texto bonito -->
+<property name="jakarta.persistence.schema-generation.database.action" value="update" /> <!-- Desde jakarta indica ala DB si se va a actualizar, eliminar o crear -->
+</properties>
+</persistence-unit>
 </persistence>

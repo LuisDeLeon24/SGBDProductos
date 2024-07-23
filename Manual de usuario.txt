@@ -1,0 +1,141 @@
+Paso 1: Asegúrate de que tu repositorio está actualizado
+Abre tu terminal.
+Navega al directorio de tu repositorio.
+Ejecuta el siguiente comando para actualizar tu repositorio local con los cambios más recientes del repositorio remoto:
+bash
+Copiar código
+git pull
+Paso 2: Cambia a la rama destino
+Identifica la rama en la que deseas fusionar los cambios (normalmente main o master).
+Cambia a esa rama con el siguiente comando:
+bash
+Copiar código
+git checkout main
+Paso 3: Realiza el merge
+Fusiona la rama de origen (por ejemplo, feature-branch) en la rama actual (main):
+bash
+Copiar código
+git merge feature-branch
+Paso 4: Resuelve los conflictos (si los hay)
+Si hay conflictos, Git te lo notificará.
+Abre los archivos marcados con conflictos y resuélvelos manualmente.
+Una vez resueltos, añade los archivos modificados:
+bash
+Copiar código
+git add <archivo_resuelto>
+Paso 5: Finaliza el merge
+Después de añadir los archivos resueltos, finaliza el merge con:
+bash
+Copiar código
+git commit
+Paso 6: Empuja los cambios al repositorio remoto
+Sube los cambios fusionados al repositorio remoto:
+bash
+Copiar código
+git push
+Diagnóstico de Problemas Comunes
+Problema: Git dice "Already up to date" pero los archivos son diferentes
+Verifica que estás en la rama correcta:
+
+bash
+Copiar código
+git checkout main
+Asegúrate de que ambas ramas están actualizadas:
+
+bash
+Copiar código
+git pull
+git checkout feature-branch
+git pull
+git checkout main
+Revisa el historial de commits:
+
+bash
+Copiar código
+git log --oneline feature-branch
+Compara las diferencias entre las ramas:
+
+bash
+Copiar código
+git diff main feature-branch
+Forza el merge si es necesario:
+
+bash
+Copiar código
+git merge --no-ff feature-branch
+Realiza un merge manual si todo falla:
+
+Copia los cambios manualmente de feature-branch a main.
+Añade los archivos modificados:
+bash
+Copiar código
+git add .
+Realiza un commit:
+bash
+Copiar código
+git commit -m "Manual merge of feature-branch into main"
+Empuja los cambios:
+bash
+Copiar código
+git push
+Ejemplo Completo
+Actualizar repositorio local:
+
+bash
+Copiar código
+git pull
+Cambiar a la rama destino:
+
+bash
+Copiar código
+git checkout main
+Realizar el merge:
+
+bash
+Copiar código
+git merge feature-branch
+Resolver conflictos (si los hay):
+
+bash
+Copiar código
+# Abrir y resolver los archivos con conflictos
+git add <archivo_resuelto>
+Finalizar el merge:
+
+bash
+Copiar código
+git commit
+Empujar los cambios:
+
+bash
+Copiar código
+git push
+Solución de Problemas Comunes
+Verificar ramas y actualizarlas:
+
+bash
+Copiar código
+git checkout main
+git pull
+git checkout feature-branch
+git pull
+git checkout main
+Comparar ramas:
+
+bash
+Copiar código
+git diff main feature-branch
+Forzar el merge:
+
+bash
+Copiar código
+git merge --no-ff feature-branch
+Merge manual:
+
+bash
+Copiar código
+# Copiar cambios manualmente
+git add .
+git commit -m "Manual merge of feature-branch into main"
+git push
+Siguiendo este manual rápido, deberías poder realizar merges en Git de manera efectiva y solucionar problemas comunes que puedan surgir.
